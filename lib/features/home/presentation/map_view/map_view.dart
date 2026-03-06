@@ -75,7 +75,7 @@ class _MapViewState extends State<MapView> {
   }
 
   Widget _buildPoiButton(PoiData poi, double scale, String floorName) {
-    final baseSize = 20.0;
+    const baseSize = 20.0;
     final scaledSize = baseSize / scale;
 
     return Positioned(
@@ -86,7 +86,7 @@ class _MapViewState extends State<MapView> {
           if (widget.onPoiTap != null) {
             widget.onPoiTap!(poi.label);
           } else {
-            print("Nhấn vào POI ${poi.label} của tầng $floorName");
+            debugPrint("Nhấn vào POI ${poi.label} của tầng $floorName");
           }
         },
         child: Container(
@@ -97,12 +97,15 @@ class _MapViewState extends State<MapView> {
             shape: BoxShape.circle,
           ),
           child: Center(
-            child: Text(
-              poi.label,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12 / scale,
-                fontWeight: FontWeight.bold,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                poi.label,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

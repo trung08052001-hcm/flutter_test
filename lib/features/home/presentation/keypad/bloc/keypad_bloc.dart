@@ -58,13 +58,20 @@ class KeypadBloc extends Bloc<KeypadEvent, KeypadState> {
   void _onKeypadSubmitEvent(
     KeypadSubmitEvent event,
     Emitter<KeypadState> emit,
-  ) {
+  ) async {
     if (state is KeypadInitial) {
       final currentState = state as KeypadInitial;
-      if (currentState.inputCode.isNotEmpty) {
-        emit(KeypadSubmitting(inputCode: currentState.inputCode));
-        emit(KeypadSubmitted(inputCode: currentState.inputCode));
+      final code = currentState.inputCode;
+
+      if (code.isNotEmpty) {
+        emit(KeypadSubmitting(inputCode: code));
+
+        emit(KeypadSubmitted(inputCode: code));
+
+        emit(const KeypadInitial(inputCode: ""));
       }
+    } else if (state is KeypadSubmitted) {
+      emit(const KeypadInitial(inputCode: ""));
     }
   }
 }
