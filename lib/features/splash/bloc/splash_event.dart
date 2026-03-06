@@ -1,0 +1,14 @@
+import 'package:equatable/equatable.dart';
+
+abstract class SplashEvent extends Equatable {
+  const SplashEvent();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class StartSplashEvent extends SplashEvent {}
+
+class NavigateToHomeEvent extends SplashEvent {}
+
+class NavigateToDresionEvent extends SplashEvent {}
