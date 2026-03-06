@@ -5,13 +5,12 @@ class HomeLanguageSelector extends StatelessWidget {
   final VoidCallback onClose;
   final Function(String) onLanguageSelected;
 
-  // List dữ liệu của bạn
   final List<Map<String, String>> languages = [
     {'name': 'Chinese', 'flag': 'assets/flags/china.png'},
     {'name': 'English', 'flag': 'assets/flags/uk.png'},
     {'name': 'French', 'flag': 'assets/flags/france.png'},
     {'name': 'German', 'flag': 'assets/flags/germany.png'},
-    {'name': 'Japanese', 'flag': 'assets/flags/japan.png'},
+    {'name': 'VietNam', 'flag': 'assets/flags/vietnam.png'},
   ];
 
   HomeLanguageSelector({

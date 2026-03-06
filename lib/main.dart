@@ -5,7 +5,6 @@ import 'package:flutter_testt/core/router/app_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize dependencies
   await initializeDependencies();
 
   runApp(const MyApp());

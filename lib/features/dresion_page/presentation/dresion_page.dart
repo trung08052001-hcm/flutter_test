@@ -24,19 +24,14 @@ class DresionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<DresionBloc, DresionState>(
-      listener: (context, state) {
-        // Xử lý state nếu cần
-      },
+      listener: (context, state) {},
       child: Scaffold(
         body: Stack(
           children: [
-            // 1. Hình nền toàn màn hình
             BackgroundContainer(),
 
-            // 2. Lớp phủ mờ (giúp nội dung chính nổi bật hơn)
             Container(color: Colors.black.withOpacity(0.2)),
 
-            // 3. Nội dung chính ở giữa
             Center(
               child: SingleChildScrollView(
                 child: Container(
@@ -50,7 +45,6 @@ class DresionView extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Hình ảnh minh họa phía trên nội dung
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
@@ -70,8 +64,7 @@ class DresionView extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       SizedBox(
-                        height:
-                            200, // Bạn có thể điều chỉnh chiều cao này cho phù hợp với UI
+                        height: 200,
                         child: SingleChildScrollView(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: const Text(
@@ -89,7 +82,7 @@ class DresionView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      // Hàng nút bấm
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

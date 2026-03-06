@@ -4,6 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:flutter_testt/features/counter/counter.dart';
 
 import 'package:flutter_testt/features/home/home.dart';
+import 'package:flutter_testt/features/home/presentation/keypad/bloc/keypad_bloc.dart';
+import 'package:flutter_testt/features/home/presentation/map_view/bloc/map_bloc.dart';
+import 'package:flutter_testt/features/home/presentation/tour_detail/bloc/tour_detail_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -13,4 +16,7 @@ Future<void> initializeDependencies() async {
   getIt.registerFactory<SplashBloc>(() => SplashBloc());
   getIt.registerFactory<DresionBloc>(() => DresionBloc());
   getIt.registerFactory<HomeBloc>(() => HomeBloc());
+  getIt.registerFactory<KeypadBloc>(() => KeypadBloc());
+  getIt.registerFactory<MapBloc>(() => MapBloc());
+  getIt.registerFactory<TourDetailBloc>(() => TourDetailBloc());
 }

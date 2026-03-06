@@ -26,20 +26,16 @@ class SplashView extends StatelessWidget {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state.status == SplashStatus.completed) {
-          // Navigate to dresion page after button pressed
           context.go('/dresion');
         }
       },
       child: Scaffold(
         body: Stack(
           children: [
-            // 1. Hình nền toàn màn hình
             BackgroundContainer(),
 
-            // 2. Lớp phủ làm mờ
             Container(color: Colors.black.withOpacity(0.1)),
 
-            // 3. Phần nội dung App "lơ lửng" ở giữa
             Center(
               child: Container(
                 width: 300,
@@ -57,49 +53,25 @@ class SplashView extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(height: 40),
-                    // Logo placeholder
-                    Container(
-                      height: 80,
-                      width: 150,
-                      color: Colors.grey[200],
-                      child: const Center(
-                        child: Text(
-                          'GUIDE APP',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const Spacer(),
-
-                    // Hình ảnh Dinh Độc Lập phía dưới
                     Stack(
-                      alignment: Alignment.center,
+                      alignment: Alignment.bottomCenter,
+                      clipBehavior: Clip.none,
                       children: [
                         ClipRRect(
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(10),
                             bottomRight: Radius.circular(10),
                           ),
-                          child: Container(
-                            height: 200,
-                            width: 300,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('assets/imagepage1.png'),
-                                fit: BoxFit.contain,
-                              ),
-                            ),
+                          child: Image.asset(
+                            'assets/imagepage2.png',
+                            height: 600,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        // Nút tròn màu đỏ có mũi tên
+
                         Positioned(
-                          top: 0,
+                          bottom: 20,
                           child: GestureDetector(
                             onTap: () {
                               context.read<SplashBloc>().add(
@@ -107,14 +79,22 @@ class SplashView extends StatelessWidget {
                               );
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
                                 color: Colors.red,
                                 shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 4),
+                                  ),
+                                ],
                               ),
                               child: const Icon(
                                 Icons.arrow_forward,
                                 color: Colors.white,
+                                size: 24,
                               ),
                             ),
                           ),

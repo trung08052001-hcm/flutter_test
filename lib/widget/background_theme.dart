@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BackgroundContainer extends StatelessWidget {
-  final Widget? child; // Cho phép truyền thêm nội dung vào bên trong
+  final Widget? child;
 
   const BackgroundContainer({super.key, this.child});
 
